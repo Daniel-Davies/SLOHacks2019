@@ -38,6 +38,18 @@ def createuser():
     response = Response(status=200)
     return response
 
+@app.route('/createevent', methods=["POST"])
+def createevent():
+    data_dict = {}
+    content = request.json
+    with open('eventdata', 'rb') as handle:
+        data_dict = pickle.load(handle)
+    data_dict[content['email']] = content['name']
+    with open('eventdata', 'wb') as handle:
+        pickle.dump(data_dict, handle)
+    response = Response(status=200)
+    return response
+
 @app.route('/createcharity', methods=["POST"])
 def createcharity():
     data_dict = {}
@@ -65,6 +77,10 @@ if __name__ == '__main__':
         
     if (not os.path.isfile(os.getcwd() + "/charitydata")):
         with open('charitydata', 'wb') as handle:
+            pickle.dump(b, handle)
+        
+    if (not os.path.isfile(os.getcwd() + "/charitydata")):
+        with open('eventdata', 'wb') as handle:
             pickle.dump(b, handle)
     
     app.run(host = '0.0.0.0',port=5000)
