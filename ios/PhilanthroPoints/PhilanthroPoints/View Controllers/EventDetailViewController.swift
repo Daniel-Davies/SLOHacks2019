@@ -41,11 +41,45 @@ class EventDetailViewController: UIViewController {
     
     @IBAction func signedUp(_ sender: Any) {
         // Send post request
+        sendSignUpPost(eventName: event.name, charity: event.charity)
         
         // Disable button
         signUpButton.titleLabel?.text = "Registered!"
         signUpButton.isEnabled = false
         
+    }
+    
+    func sendSignUpPost(eventName: String, charity: String) {
+        // prepare json data
+        let json: [String: Any] = ["email": "chase19@ymail.com",
+                                   "Organization": charity,
+                                   "EventName": eventName]
+        print(json)
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+  
+        // create post request
+        let url = URL(string: "http://129.65.102.125:5000/register")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        // insert json data to the request
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print(responseJSON)
+            }
+        }
+        
+        task.resume()
     }
     
     /*
