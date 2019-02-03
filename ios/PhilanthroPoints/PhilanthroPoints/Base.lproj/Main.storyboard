@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pp2-Pb-vev">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xRG-Sa-aih">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -365,6 +365,119 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEE-Pe-9Ns" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2048.8000000000002" y="888.30584707646187"/>
+        </scene>
+        <!--Prize View Controller-->
+        <scene sceneID="0Rp-vP-eEQ">
+            <objects>
+                <viewController id="xRG-Sa-aih" customClass="PrizeViewController" customModule="PhilanthroPoints" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5tg-GK-yEm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rewards!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMe-0b-aCE">
+                                <rect key="frame" x="0.0" y="30" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sqe-uZ-zGo">
+                                <rect key="frame" x="0.0" y="30" width="375" height="637"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" estimatedRowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RNq-gt-MlM">
+                                <rect key="frame" x="0.0" y="101" width="375" height="566"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrizeCell" rowHeight="100" id="U6C-8P-UvE" customClass="PrizeCell" customModule="PhilanthroPoints" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U6C-8P-UvE" id="khN-4i-WFd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T84-Ih-Z9o">
+                                                    <rect key="frame" x="175" y="11" width="47.5" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jLS-CO-iMW">
+                                                    <rect key="frame" x="15" y="11" width="78" height="78"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="78" id="dRf-hM-q4l"/>
+                                                        <constraint firstAttribute="height" constant="78" id="lEX-k9-6hI"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rewards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrX-36-urU">
+                                                    <rect key="frame" x="294" y="11" width="66" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5 off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWh-pl-mfF">
+                                                    <rect key="frame" x="303.5" y="40" width="47" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-dg-w76">
+                                                    <rect key="frame" x="188.5" y="39" width="21" height="21"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUM-uU-4UB">
+                                                    <rect key="frame" x="159" y="59" width="57" height="30"/>
+                                                    <state key="normal" title="Redeem"/>
+                                                    <connections>
+                                                        <action selector="RedeemTap:" destination="U6C-8P-UvE" eventType="touchUpInside" id="uk9-6L-5h4"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="lrX-36-urU" firstAttribute="leading" secondItem="T84-Ih-Z9o" secondAttribute="trailing" constant="71.5" id="3T8-Lz-tTX"/>
+                                                <constraint firstItem="SZe-dg-w76" firstAttribute="centerX" secondItem="T84-Ih-Z9o" secondAttribute="centerX" id="4Y0-87-Sh1"/>
+                                                <constraint firstItem="yWh-pl-mfF" firstAttribute="centerX" secondItem="lrX-36-urU" secondAttribute="centerX" id="FCY-dh-BWg"/>
+                                                <constraint firstItem="lrX-36-urU" firstAttribute="top" secondItem="khN-4i-WFd" secondAttribute="topMargin" id="IHz-8X-ffg"/>
+                                                <constraint firstItem="SZe-dg-w76" firstAttribute="top" secondItem="T84-Ih-Z9o" secondAttribute="bottom" constant="8" id="Mj6-mp-vbZ"/>
+                                                <constraint firstItem="bUM-uU-4UB" firstAttribute="centerX" secondItem="khN-4i-WFd" secondAttribute="centerX" id="NK7-bE-j8O"/>
+                                                <constraint firstItem="jLS-CO-iMW" firstAttribute="leading" secondItem="khN-4i-WFd" secondAttribute="leadingMargin" id="OLo-T3-c9R"/>
+                                                <constraint firstItem="lrX-36-urU" firstAttribute="trailing" secondItem="khN-4i-WFd" secondAttribute="trailingMargin" id="Vr8-0d-5x0"/>
+                                                <constraint firstItem="bUM-uU-4UB" firstAttribute="bottom" secondItem="khN-4i-WFd" secondAttribute="bottomMargin" id="hm5-fM-gDW"/>
+                                                <constraint firstItem="T84-Ih-Z9o" firstAttribute="top" secondItem="khN-4i-WFd" secondAttribute="topMargin" id="tzr-tv-lnm"/>
+                                                <constraint firstItem="jLS-CO-iMW" firstAttribute="top" secondItem="khN-4i-WFd" secondAttribute="topMargin" id="wII-PN-2fT"/>
+                                                <constraint firstItem="yWh-pl-mfF" firstAttribute="top" secondItem="lrX-36-urU" secondAttribute="bottom" constant="8" id="wWy-Yi-gDD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="Points" destination="SZe-dg-w76" id="nFP-Q5-qek"/>
+                                            <outlet property="PrizeImage" destination="jLS-CO-iMW" id="gz7-uH-3Lg"/>
+                                            <outlet property="RewardAmount" destination="yWh-pl-mfF" id="jna-lC-v3U"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jMe-0b-aCE" firstAttribute="leading" secondItem="V2C-Ml-tzn" secondAttribute="leading" id="CnG-TE-g0J"/>
+                            <constraint firstItem="V2C-Ml-tzn" firstAttribute="trailing" secondItem="jMe-0b-aCE" secondAttribute="trailing" id="bDd-7n-7Ip"/>
+                            <constraint firstItem="V2C-Ml-tzn" firstAttribute="trailing" secondItem="RNq-gt-MlM" secondAttribute="trailing" id="dg7-z3-HTn"/>
+                            <constraint firstItem="RNq-gt-MlM" firstAttribute="top" secondItem="jMe-0b-aCE" secondAttribute="bottom" constant="50" id="eQN-9z-R2S"/>
+                            <constraint firstItem="jMe-0b-aCE" firstAttribute="top" secondItem="V2C-Ml-tzn" secondAttribute="top" constant="10" id="mSh-f6-mid"/>
+                            <constraint firstItem="RNq-gt-MlM" firstAttribute="leading" secondItem="V2C-Ml-tzn" secondAttribute="leading" id="oHA-B7-2h8"/>
+                            <constraint firstItem="V2C-Ml-tzn" firstAttribute="bottom" secondItem="RNq-gt-MlM" secondAttribute="bottom" id="w5w-go-jF8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="V2C-Ml-tzn"/>
+                    </view>
+                    <connections>
+                        <outlet property="PrizeTableView" destination="RNq-gt-MlM" id="rSU-Ph-pLT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UEa-jw-AZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103.2" y="-574.36281859070471"/>
         </scene>
         <!--Events-->
         <scene sceneID="5gO-wB-8V9">

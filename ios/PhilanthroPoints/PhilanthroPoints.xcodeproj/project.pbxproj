@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		34A259EF8D32C8625661EF5D /* Pods_PhilanthroPoints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DFD8AA5524EF59A5EFBA3A /* Pods_PhilanthroPoints.framework */; };
+		5EE5DD612206A8E800EF01FC /* PrizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE5DD602206A8E800EF01FC /* PrizeViewController.swift */; };
+		5EE5DD632206AA0C00EF01FC /* PrizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE5DD622206AA0C00EF01FC /* PrizeCell.swift */; };
+		5EE5DD652206C4E700EF01FC /* Prize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE5DD642206C4E700EF01FC /* Prize.swift */; };
 		C9FDD887220587C9004BE9AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FDD886220587C9004BE9AE /* AppDelegate.swift */; };
 		C9FDD88C220587C9004BE9AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FDD88A220587C9004BE9AE /* Main.storyboard */; };
 		C9FDD88E220587C9004BE9AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9FDD88D220587C9004BE9AE /* Assets.xcassets */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		34DFD8AA5524EF59A5EFBA3A /* Pods_PhilanthroPoints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhilanthroPoints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FBBD74C76AB74BC5C4D860 /* Pods-PhilanthroPoints.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhilanthroPoints.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhilanthroPoints/Pods-PhilanthroPoints.release.xcconfig"; sourceTree = "<group>"; };
+		5EE5DD602206A8E800EF01FC /* PrizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeViewController.swift; sourceTree = "<group>"; };
+		5EE5DD622206AA0C00EF01FC /* PrizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrizeCell.swift; sourceTree = "<group>"; };
+		5EE5DD642206C4E700EF01FC /* Prize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prize.swift; sourceTree = "<group>"; };
 		6315E585034751EBCA07F145 /* Pods-PhilanthroPoints.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhilanthroPoints.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhilanthroPoints/Pods-PhilanthroPoints.debug.xcconfig"; sourceTree = "<group>"; };
 		C9FDD883220587C9004BE9AE /* PhilanthroPoints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhilanthroPoints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FDD886220587C9004BE9AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 				C9FDD89922060FDF004BE9AE /* EventsViewController.swift */,
 				C9FDD8A722067A60004BE9AE /* ProfileViewController.swift */,
 				C9FDD8A92206805B004BE9AE /* LeaderboardViewController.swift */,
+				5EE5DD602206A8E800EF01FC /* PrizeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -115,6 +122,7 @@
 		C9FDD89B22061040004BE9AE /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				5EE5DD622206AA0C00EF01FC /* PrizeCell.swift */,
 				C9FDD89F22061E10004BE9AE /* EventCollectionViewCell.swift */,
 				C9FDD8AE22068B24004BE9AE /* LeaderboardTableViewCell.swift */,
 			);
@@ -134,6 +142,7 @@
 			children = (
 				C9FDD8AC22068255004BE9AE /* Event.swift */,
 				C9FDD8B0220691CE004BE9AE /* Profile.swift */,
+				5EE5DD642206C4E700EF01FC /* Prize.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -252,12 +261,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EE5DD632206AA0C00EF01FC /* PrizeCell.swift in Sources */,
 				C9FDD8A022061E10004BE9AE /* EventCollectionViewCell.swift in Sources */,
 				C9FDD8B1220691CE004BE9AE /* Profile.swift in Sources */,
 				C9FDD887220587C9004BE9AE /* AppDelegate.swift in Sources */,
+				5EE5DD652206C4E700EF01FC /* Prize.swift in Sources */,
 				C9FDD8AA2206805B004BE9AE /* LeaderboardViewController.swift in Sources */,
 				C9FDD8A822067A60004BE9AE /* ProfileViewController.swift in Sources */,
 				C9FDD8AD22068255004BE9AE /* Event.swift in Sources */,
+				5EE5DD612206A8E800EF01FC /* PrizeViewController.swift in Sources */,
 				C9FDD89A22060FDF004BE9AE /* EventsViewController.swift in Sources */,
 				C9FDD8AF22068B24004BE9AE /* LeaderboardTableViewCell.swift in Sources */,
 			);
@@ -407,7 +419,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7T2LH9BP6J;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PhilanthroPoints/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -426,7 +438,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7T2LH9BP6J;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PhilanthroPoints/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
