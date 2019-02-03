@@ -36,6 +36,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         getEvents()
     
     }
+
     
     func getEvents() {
         // Set Up Request

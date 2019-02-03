@@ -36,6 +36,10 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         getProfile()
     }
     
+    func generateQRCode() {
+        
+    }
+    
     func getProfile() {
         // Set Up Request
         let url = URL(string: "http://129.65.102.125:5000/getUser/asdf@gmail.com")!
