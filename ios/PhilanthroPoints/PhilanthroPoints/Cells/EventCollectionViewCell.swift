@@ -14,6 +14,8 @@ class EventCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var charity: UILabel!
     
+    var desc = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = 6

@@ -55,7 +55,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="172" height="204"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W5e-lr-N3L">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wowLeaders" translatesAutoresizingMaskIntoConstraints="NO" id="W5e-lr-N3L">
                                                     <rect key="frame" x="0.0" y="0.0" width="172" height="132"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJd-Xc-Guv">
@@ -105,7 +105,7 @@
                                             <outlet property="date" destination="FWU-Z7-0Rl" id="1fx-WY-Qax"/>
                                             <outlet property="eventName" destination="FJd-Xc-Guv" id="cGx-gH-nIb"/>
                                             <outlet property="image" destination="W5e-lr-N3L" id="Tt9-LA-ket"/>
-                                            <outletCollection property="gestureRecognizers" destination="KcV-Xl-9wc" appends="YES" id="9jI-e4-c5E"/>
+                                            <segue destination="fuD-zB-URH" kind="show" id="uRR-CX-eyS"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -120,21 +120,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1OO-Y6-XLD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0aJ-0I-elr"/>
+                    <navigationItem key="navigationItem" title="PhilanthroPoints" id="0aJ-0I-elr"/>
                     <connections>
                         <outlet property="collectionView" destination="iey-b9-vdP" id="Lju-7h-MbD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMB-OO-U7t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="KcV-Xl-9wc">
-                    <connections>
-                        <segue destination="fuD-zB-URH" kind="show" id="VHj-Vc-Lso"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2048.8000000000002" y="-595.05247376311854"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--PhilanthroPoints-->
         <scene sceneID="XEg-U1-aop">
             <objects>
                 <viewController id="jCJ-0C-ktn" customClass="ProfileViewController" customModule="PhilanthroPoints" customModuleProvider="target" sceneMemberID="viewController">
@@ -197,7 +192,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tmr-68-d1s">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wowLeaders" translatesAutoresizingMaskIntoConstraints="NO" id="tmr-68-d1s">
                                                     <rect key="frame" x="0.0" y="0.0" width="172" height="132"/>
                                                 </imageView>
                                             </subviews>
@@ -229,6 +224,7 @@
                                             <outlet property="date" destination="YIb-69-Nee" id="bPU-4d-LgJ"/>
                                             <outlet property="eventName" destination="vvN-BD-ksw" id="b4s-Up-tcy"/>
                                             <outlet property="image" destination="tmr-68-d1s" id="x57-bb-BAu"/>
+                                            <segue destination="fuD-zB-URH" kind="show" id="OFK-c9-MHu"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -253,7 +249,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o7m-bE-F6d"/>
                     </view>
-                    <navigationItem key="navigationItem" id="MgX-YF-2S5"/>
+                    <navigationItem key="navigationItem" title="PhilanthroPoints" id="MgX-YF-2S5"/>
                     <connections>
                         <outlet property="collectionView" destination="vCV-G0-kyH" id="oyr-PB-rsI"/>
                         <outlet property="nameLabel" destination="ZNf-m0-oWV" id="kTG-hF-hIW"/>
@@ -265,22 +261,106 @@
             </objects>
             <point key="canvasLocation" x="2048.8000000000002" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Event Detail View Controller-->
         <scene sceneID="m6Q-Z0-vGi">
             <objects>
-                <viewController id="fuD-zB-URH" sceneMemberID="viewController">
+                <viewController id="fuD-zB-URH" customClass="EventDetailViewController" customModule="PhilanthroPoints" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HJw-v3-H3z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IbC-Qr-S1h">
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.46202266219999999" green="0.73886422979999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4uK-uN-4iP"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6TY-3X-xSX">
+                                <rect key="frame" x="0.0" y="220" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.46202266219999999" green="0.73886422979999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rE8-1s-TfX"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Hdp-gg-pxr">
+                                <rect key="frame" x="16" y="112" width="343" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="NcM-iA-bb1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="44"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxy-cT-JKg">
+                                <rect key="frame" x="8" y="268" width="359" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb6-du-UJs">
+                                <rect key="frame" x="8" y="308" width="359" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgM-Ez-ZFG">
+                                <rect key="frame" x="16" y="340" width="343" height="205"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yv-jn-lse">
+                                <rect key="frame" x="139.5" y="553" width="96" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="bLi-E1-vWF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                                <state key="normal" title="Sign Up!"/>
+                                <connections>
+                                    <action selector="signedUp:" destination="fuD-zB-URH" eventType="touchUpInside" id="Q0i-wN-sEx"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fb6-du-UJs" firstAttribute="top" secondItem="vxy-cT-JKg" secondAttribute="bottom" constant="8" id="Ab6-sr-VrI"/>
+                            <constraint firstItem="0Yv-jn-lse" firstAttribute="centerX" secondItem="HJw-v3-H3z" secondAttribute="centerX" id="CVB-1n-Hye"/>
+                            <constraint firstItem="6TY-3X-xSX" firstAttribute="leading" secondItem="rvA-8z-Q0Y" secondAttribute="leading" id="CyH-ET-vKK"/>
+                            <constraint firstItem="fb6-du-UJs" firstAttribute="leading" secondItem="rvA-8z-Q0Y" secondAttribute="leading" constant="8" id="Et4-0X-1ul"/>
+                            <constraint firstItem="rvA-8z-Q0Y" firstAttribute="trailing" secondItem="cgM-Ez-ZFG" secondAttribute="trailing" constant="16" id="F8F-s4-kX2"/>
+                            <constraint firstItem="IbC-Qr-S1h" firstAttribute="trailing" secondItem="rvA-8z-Q0Y" secondAttribute="trailing" id="FcC-px-vmo"/>
+                            <constraint firstItem="vxy-cT-JKg" firstAttribute="top" secondItem="6TY-3X-xSX" secondAttribute="bottom" constant="8" id="L28-Bo-w7h"/>
+                            <constraint firstItem="rvA-8z-Q0Y" firstAttribute="trailing" secondItem="Hdp-gg-pxr" secondAttribute="trailing" constant="16" id="MNa-dd-3bH"/>
+                            <constraint firstItem="0Yv-jn-lse" firstAttribute="top" secondItem="cgM-Ez-ZFG" secondAttribute="bottom" constant="8" id="MTP-L6-w1F"/>
+                            <constraint firstItem="vxy-cT-JKg" firstAttribute="leading" secondItem="rvA-8z-Q0Y" secondAttribute="leading" constant="8" id="WMZ-5C-JY4"/>
+                            <constraint firstItem="6TY-3X-xSX" firstAttribute="trailing" secondItem="rvA-8z-Q0Y" secondAttribute="trailing" id="aY8-sd-j0k"/>
+                            <constraint firstItem="rvA-8z-Q0Y" firstAttribute="bottom" secondItem="0Yv-jn-lse" secondAttribute="bottom" constant="20" id="fI1-mh-8bu"/>
+                            <constraint firstItem="rvA-8z-Q0Y" firstAttribute="trailing" secondItem="fb6-du-UJs" secondAttribute="trailing" constant="8" id="gSa-Op-fQx"/>
+                            <constraint firstItem="rvA-8z-Q0Y" firstAttribute="trailing" secondItem="vxy-cT-JKg" secondAttribute="trailing" constant="8" id="kvn-vp-Mak"/>
+                            <constraint firstItem="Hdp-gg-pxr" firstAttribute="top" secondItem="IbC-Qr-S1h" secondAttribute="bottom" constant="8" id="lEB-8N-Y8u"/>
+                            <constraint firstItem="cgM-Ez-ZFG" firstAttribute="top" secondItem="fb6-du-UJs" secondAttribute="bottom" constant="8" id="lgF-OJ-wcg"/>
+                            <constraint firstItem="6TY-3X-xSX" firstAttribute="top" secondItem="Hdp-gg-pxr" secondAttribute="bottom" constant="8" id="lnI-Nt-1xv"/>
+                            <constraint firstItem="IbC-Qr-S1h" firstAttribute="leading" secondItem="rvA-8z-Q0Y" secondAttribute="leading" id="ppW-ez-9cp"/>
+                            <constraint firstItem="cgM-Ez-ZFG" firstAttribute="leading" secondItem="rvA-8z-Q0Y" secondAttribute="leading" constant="16" id="quM-xB-Nix"/>
+                            <constraint firstItem="IbC-Qr-S1h" firstAttribute="top" secondItem="rvA-8z-Q0Y" secondAttribute="top" id="rnJ-eB-2df"/>
+                            <constraint firstItem="Hdp-gg-pxr" firstAttribute="leading" secondItem="rvA-8z-Q0Y" secondAttribute="leading" constant="16" id="zss-7t-tKv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rvA-8z-Q0Y"/>
                     </view>
+                    <connections>
+                        <outlet property="charityLabel" destination="fb6-du-UJs" id="shM-uH-r90"/>
+                        <outlet property="dateLabel" destination="vxy-cT-JKg" id="Ook-Pw-9sR"/>
+                        <outlet property="descriptionLabel" destination="cgM-Ez-ZFG" id="hSC-N7-ib6"/>
+                        <outlet property="eventNameLabel" destination="Hdp-gg-pxr" id="egN-Yn-pny"/>
+                        <outlet property="signUpButton" destination="0Yv-jn-lse" id="gz2-fw-muQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v8b-pq-12l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3014" y="-264"/>
+            <point key="canvasLocation" x="3013.5999999999999" y="-264.01799100449779"/>
         </scene>
-        <!--Leaderboard View Controller-->
+        <!--PhilanthroPoints-->
         <scene sceneID="Wht-RW-saj">
             <objects>
                 <viewController id="9m2-Np-9yg" customClass="LeaderboardViewController" customModule="PhilanthroPoints" customModuleProvider="target" sceneMemberID="viewController">
@@ -298,7 +378,7 @@
                                 <rect key="frame" x="0.0" y="111.5" width="375" height="506.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="57" id="uJy-H7-VGc" customClass="LeaderboardTableViewCell" customModule="PhilanthroPoints" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LeaderboardCell" rowHeight="57" id="uJy-H7-VGc" customClass="LeaderboardTableViewCell" customModule="PhilanthroPoints" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uJy-H7-VGc" id="05f-Pv-ZKB">
@@ -320,7 +400,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="# Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fV-Lu-FFj">
                                                     <rect key="frame" x="272" y="16" width="88" height="25"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.46202266219999999" green="0.73886422979999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -357,7 +437,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aoS-eV-nb4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="XSj-df-buj"/>
+                    <navigationItem key="navigationItem" title="PhilanthroPoints" id="XSj-df-buj"/>
                     <connections>
                         <outlet property="leaderboardTable" destination="JqV-bp-Y89" id="LzO-Nd-PS1"/>
                     </connections>
@@ -483,7 +563,7 @@
         <scene sceneID="5gO-wB-8V9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pCo-TG-0Ch" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" id="Zy5-kf-gQf"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="events-t" id="Zy5-kf-gQf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="up5-tf-mfP">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -502,7 +582,7 @@
         <scene sceneID="J9b-ef-Gys">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ke8-qv-4vR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="DpC-af-Q5s"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile-t" id="DpC-af-Q5s"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9PR-5t-2Rb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -521,7 +601,7 @@
         <scene sceneID="PLq-d4-x0e">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Q9f-SG-87X" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Leaderboard" id="Mtq-Iw-Ljd"/>
+                    <tabBarItem key="tabBarItem" title="Leaderboard" image="leader-t" id="Mtq-Iw-Ljd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eqV-F9-Hxd">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -537,4 +617,13 @@
             <point key="canvasLocation" x="1109.5999999999999" y="888.30584707646187"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="events-t" width="37.5" height="37.5"/>
+        <image name="leader-t" width="37.5" height="37.5"/>
+        <image name="profile-t" width="37.5" height="37.5"/>
+        <image name="wowLeaders" width="600" height="400"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="OFK-c9-MHu"/>
+    </inferredMetricsTieBreakers>
 </document>

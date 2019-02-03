@@ -52,6 +52,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                 let profileJSON = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
                 self.profile = Profile(name: profileJSON["name"] as! String, points: profileJSON["points"] as! Int)
+                self.nameLabel.text = self.profile.name
+                self.pointsLabel.text = String(self.profile.points) + " Points"
                 
                 print(self.profile)
                 self.getEventsByUser(userEmail: "")//self.profile["email"] as! String)
@@ -64,7 +66,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func getEventsByUser(userEmail: String) {
         // Set Up Request
-        let url = URL(string: "http://129.65.102.125:5000/getevents/asdf@gmail.com")!// + userEmail)!
+        let url = URL(string: "http://129.65.102.125:5000/getevents/chase19@ymail.com")!// + userEmail)!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -79,9 +81,10 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                 print(eventsJSON)
                 for eventJSON in eventsJSON {
                     let event = Event(
-                        name: eventJSON["name"] as? String ?? "",
-                        charity: eventJSON["charity"] as? String ?? "",
-                        date: eventJSON["date"] as? String ?? "",
+                        name: eventJSON["EventName"] as? String ?? "",
+                        charity: eventJSON["Charity"] as? String ?? "",
+                        date: eventJSON["DateTime"] as? String ?? "",
+                        desc: eventJSON["Description"] as? String ?? "",
                         photoUrl: eventJSON["pictureUrl"] as! String
                     )
                     self.events.append(event)
@@ -106,9 +109,6 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EventCell", for: indexPath) as! EventCollectionViewCell
         
-        // Get Photo
-        // photo = photos[indexPath.row]
-        print("loaded")
         // Get Event
         let event = self.events[indexPath.row]
         
@@ -116,10 +116,9 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         cell.eventName.text = event.name
         cell.date.text = event.date
         cell.charity.text = event.charity
+        cell.desc = event.desc
         
         // Get Event Picture
-        //let baseUrl = "https://pbs.twimg.com/media/"
-        //let picUrl = event["pictureUrl"] as! String
         let picUrl = URL(string: event.photoUrl)
         
         // Set Movie Poster
@@ -128,14 +127,22 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cell
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let eventVC = segue.destination as! EventDetailViewController
+        let eventCell = sender as! EventCollectionViewCell
+        
+        eventVC.event = Event(name: eventCell.eventName.text!,
+                          charity: eventCell.charity.text!,
+                          date: eventCell.date.text!,
+                          desc: eventCell.desc,
+                          photoUrl: "")
+        eventVC.registered = true
+        
     }
-    */
+    
 
 }

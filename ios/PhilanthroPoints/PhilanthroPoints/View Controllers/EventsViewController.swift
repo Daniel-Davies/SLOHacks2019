@@ -47,16 +47,16 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
             if let error = error {
                 print(error.localizedDescription)
             } else if let data = data {
-                //let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
+
                 // Get the array of movies
                 let eventsJSON = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
                 
                 for eventJSON in eventsJSON {
                     let event = Event(
-                        name: eventJSON["name"] as? String ?? "",
-                        charity: eventJSON["charity"] as? String ?? "",
-                        date: eventJSON["date"] as? String ?? "",
+                        name: eventJSON["EventName"] as? String ?? "",
+                        charity: eventJSON["Charity"] as? String ?? "",
+                        date: eventJSON["DateTime"] as? String ?? "",
+                        desc: eventJSON["Description"] as? String ?? "",
                         photoUrl: eventJSON["pictureUrl"] as! String
                     )
                     self.events.append(event)
@@ -89,10 +89,9 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         cell.eventName.text = event.name
         cell.date.text = event.date
         cell.charity.text = event.charity
+        cell.desc = event.desc
         
         // Get Event Picture
-        //let baseUrl = "https://pbs.twimg.com/media/"
-        //let picUrl = event["pictureUrl"] as! String
         let picUrl = URL(string: event.photoUrl)
         
         // Set Movie Poster
@@ -101,14 +100,19 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         return cell
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+         let eventVC = segue.destination as! EventDetailViewController
+         let eventCell = sender as! EventCollectionViewCell
+        eventVC.event = Event(name: eventCell.eventName.text!,
+                              charity: eventCell.charity.text!,
+                              date: eventCell.date.text!,
+                              desc: eventCell.desc,
+                              photoUrl: "")
     }
-    */
+    
 
 }
