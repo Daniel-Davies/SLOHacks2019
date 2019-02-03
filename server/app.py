@@ -54,6 +54,21 @@ class SessionTracker():
         return self.genericImgURLs
 
 
+@app.route("/checkin/<email>", methods=["GET", "POST"])
+def auth(email):
+    ##actually add the points here
+    other_data_dict = {}
+    with open('userdata', 'rb') as handle:
+        other_data_dict = pickle.load(handle)
+
+    try:
+        other_data_dict[email]['points'] = other_data_dict[email]['points'] + 20
+        send_name = other_data_dict[email]['name']
+        return render_template("auth.html", Person_name=send_name)
+    except:
+        return render_template("auth.html", Person_name="Daniel")
+    
+
 @app.route("/redeem", methods=["POST"])
 def redeem():
     #remove points
@@ -100,11 +115,7 @@ def register():
     data_dict[name+event]['UserList'].append(email)
     with open('eventdata', 'wb') as handle:
         pickle.dump(data_dict, handle)
-    
-    other_data_dict = {}
-    with open('userdata', 'rb') as handle:
-        other_data_dict = pickle.load(handle)
-    other_data_dict[email]['points'] = other_data_dict[email]['points'] + 20
+
     response = Response(status=200)
     return response
 
@@ -180,7 +191,7 @@ def dasdass():
 @app.route("/getUser/<email>")
 def dasdadhjsdasss(email):
     k = {}
-    with open('charitydata', 'rb') as handle:
+    with open('userdata', 'rb') as handle:
         k = pickle.load(handle)
         print(k)
     try:
