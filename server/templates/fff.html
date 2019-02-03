@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>NAME HERE</title>
+  <title>PhilanthroPoints</title>
   <meta name="description" content="Index-search">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
@@ -134,58 +134,59 @@ html {
   background-position: center;
 }
 .wrapper .column:nth-child(1) .inner {
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('static/swan.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('static/slo.jpg');
 }
 .wrapper .column:nth-child(2) .inner {
-  background-image: url('static/slo.jpg');
+  background-image: url('static/dogshelter.jpg');
 }
 .wrapper .column:nth-child(3) .inner {
-  background-image: url('static/slo.jpg');
+  background-image: url('static/foodpackaging.jpg');
 }
 .wrapper .column:nth-child(4) .inner {
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('static/swan.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('static/event.jpg');
 }
 .wrapper .column:nth-child(5) .inner {
-  background-image: url('static/slo.jpg');
+  background-image: url('static/treeplanting.jpg');
 }
 .wrapper .column:nth-child(6) .inner {
-  background-image: url('static/slo.jpg');
+  background-image: url('static/trashpickup.jpg');
 }
 .wrapper .column:nth-child(7) .inner {
-  background-image: url('static/slo.jpg');
+  background-image: url('static/kitten.jpg');
 }
 .wrapper .column:nth-child(8) .inner {
-  background-image: url('static/slo.jpg');
+  background-image: url('static/foster.jpg');
 }
 .wrapper .column:nth-child(9) .inner {
-  background-image: url('static/slo.jpg');
+  background-image: url('static/homeless.jpg');
 }
 .wrapper .column:nth-child(10) .inner {
-  background-image: url('static/slo.jpg');
+  background-image: url('static/hospital.jpg');
 }
 .wrapper .column:nth-child(11) .inner {
-  background-image: url('static/slo.jpg');
+  background-image: url('static/wowLeaders.jpg');
 }
 .wrapper .column:nth-child(12) .inner {
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('static/slo.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('static/board.jpg');
 }
 .wrapper .column:nth-child(13) .inner {
   background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('static/slo.jpg');
 }
+
 </style>
 </head>
 
 <body>
   {% include 'header.html' %}
 
-  <br/><br/><br/>
-  <div class="col-12 d-flex justify-content-center"><p class="display-3">Welcome, {{Name}}</p></div>
-  <br/><br/>
+  <br/><br/><br/><br/><br/>
+  <div class="col-12 d-flex justify-content-center"><p class="display-4">Welcome, {{Name}}</p></div>
+  <br/>
   <div class="col-12 d-flex justify-content-center" style="height: 60vh;">
   <div class="wrapper col-8">
       <div class="column container">
         <div class="col-12 d-flex justify-content-center">
-            <a class="btn col-1 btn-lg btn-outline-light text-white" style="position: fixed; z-index: 1000; margin-top: 8%;" href="/host">
+            <a class="btn col-1 btn-lg btn-outline-light text-white" onmouseover="changetxt(this)" onmouseleave="changetxt2(this)" style="position: fixed; z-index: 1000; margin-top: 8%;" href="/host">
                 Host Event
             </a>
         </div>
@@ -199,7 +200,7 @@ html {
       </div>
       <div class="column">
           <div class="col-12 d-flex justify-content-center">
-                <a class="btn col-1 btn-lg btn-outline-light text-white" style="position: fixed; z-index: 1000; margin-top: 3%;" href="/past">
+                <a class="btn col-1 btn-lg btn-outline-light text-white" onmouseover="changetxt(this)" onmouseleave="changetxt2(this)" style="position: fixed; z-index: 1000; margin-top: 3%;" href="/past">
                     Past Events
                 </a>
           </div>
@@ -229,7 +230,7 @@ html {
       </div>
       <div class="column">
           <div class="col-12 d-flex justify-content-center">
-              <a class="btn col-1 btn-lg btn-outline-light text-white" style="position: fixed; z-index: 1000; margin-top: 3%;" href="#">
+              <a class="btn col-1 btn-lg btn-outline-light text-white" onmouseover="changetxt(this)" onmouseleave="changetxt2(this)" style="position: fixed; z-index: 1000; margin-top: 3%;" href="#">
                   Upcoming
               </a>
         </div>
@@ -243,4 +244,12 @@ html {
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script>
+  function changetxt(elem){
+    elem.className="btn col-1 btn-lg btn-outline-light text-black"
+  }
+  function changetxt2(elem){
+    elem.className="btn col-1 btn-lg btn-outline-light text-white"
+  }
+</script>
 </html>

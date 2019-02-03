@@ -1,120 +1,136 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>NAME HERE</title>
+  <title>PhilanthroPoints</title>
   <meta name="description" content="Index-search">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
-<style>
-
-</style>
+  <style>
+    .carousel-caption {
+      top: 34%;
+      bottom: auto;
+    }
+  </style>
 </head>
 
-<body style="background-color:purple;">
+<body>
   {% include 'header.html' %}
-
-  <div id="carouselExampleIndicators" class="carousel slide" style="width: 60%; height: 60%; margin: 20%" data-ride="carousel"data-interval="false">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-  </ol>
-
-<form action="/host" method="post">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/2000px-Color_icon_blue.svg.png" alt="First slide" style="width: 40%; height: 250px; margin: 0%">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>What is the name of your organization?</h5>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"></span>
-            </div>
-            <input type="text" class="form-control" placeholder="Organization" name="Organization" id="Organization">
-          </div>
-      <!-- This is the caption for each slide.-->
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/2000px-Color_icon_blue.svg.png" alt="Second slide" style="width: 40%; height: 250px; margin: 0%">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>What is your event called?</h5>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"></span>
-            </div>
-            <input type="text" class="form-control" placeholder="Event Name" name="EventName" id="EventName">
-          </div>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/2000px-Color_icon_blue.svg.png" alt="Third slide" style="width: 40%; height: 250px; margin: 0%">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>What will volunteers be doing at your organization?</h5>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"></span>
-            </div>
-            <input type="text" class="form-control" placeholder="Description" name="Description" id="Description">
-          </div>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/2000px-Color_icon_blue.svg.png" alt="Fourth slide" style="width: 40%; height: 250px; margin: 0%">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Where is your event located?</h5>
-          <div class="input-group mb-3" id="input3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"></span>
-            </div>
-            <input type="text" class="form-control" placeholder="Location" name="Location" id="Location">
-          </div>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <img class="d-block w-100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/2000px-Color_icon_blue.svg.png" alt="Fifth slide" style="width: 40%; height: 250px; margin: 0%">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>What date/time is your event?</h5>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"></span>
-            </div>
-            <input type="text" class="form-control" placeholder="Day/Time" name="Day/Time" id="Day/Time">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-      </div>
-    </div>
-
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <div class="d-flex justify-content-center m-1 mb-2">
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item m-1">
+        <a class="btn btn-outline-dark">
+          <i class="fa fa-home mx-1"></i>Home
+        </a>
+      </li>
+      <li class="nav-item m-1">
+        <a class="btn btn-outline-dark">Create Event</a>
+      </li>
+      <li class="nav-item m-1">
+        <a class="btn btn-outline-dark">Upcoming</a>
+      </li>
+    </ul>
   </div>
-  <form>
-  </div>
-  
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  <div class="justify-content-center d-flex mt-5">
+    <div class="col-10">
+      <form action="/createhost" method="post">
 
-    {% include 'footer.html' %}
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval=false>
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="static/blue.jpg" style="height: 50vh; border-radius: 13px;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>What is the name of your organization?</h5>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Organization" name="Organization" id="Organization">
+                </div>
+                <!-- This is the caption for each slide.-->
+              </div>
+            </div>
+            <div class="carousel-item"  style="border-radius: 5px;">
+                <img class="d-block w-100" src="static/blue.jpg" style="height: 50vh; border-radius: 13px;">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>What is your event called?</h5>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Event Name" name="EventName" id="EventName">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item bg-primary">
+                <img class="d-block w-100" src="static/blue.jpg" style="height: 50vh; border-radius: 13px;">
+
+              <div class="carousel-caption d-none d-md-block">
+                <h5>What will volunteers be doing at your organization?</h5>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Description" name="Description" id="Description">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item bg-primary">
+
+                <img class="d-block w-100" src="static/blue.jpg" style="height: 50vh; border-radius: 13px;">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>Where is your event located?</h5>
+                <div class="input-group mb-3" id="input3">
+                  <input type="text" class="form-control" placeholder="Location" name="Location" id="Location">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item bg-primary">
+                <img class="d-block w-100" src="static/blue.jpg" style="height: 50vh; border-radius: 13px;">
+
+              <div class="carousel-caption d-none d-md-block">
+                <h5>What date/time is your event?</h5>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Day/Time" name="Day/Time" id="Day/Time">
+                  <div class="col-12 d-flex justify-content-center">
+                      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% include 'footer.html' %}
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+  crossorigin="anonymous"></script>
 <script type="text/javascript">
-            document.getElementById("carouselExampleIndicators").onkeypress = function(event){
-                if (event.keyCode == 13 || event.which == 13){
-                  $('.carousel').carousel('next');
-                }
-            };
+  document.getElementById("carouselExampleIndicators").onkeypress = function (event) {
+    if (event.keyCode == 13 || event.which == 13) {
+      event.preventDefault()
+      $('.carousel').carousel('next');
+    }
+  };
 </script>
+
 </html>

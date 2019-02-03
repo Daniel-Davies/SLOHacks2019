@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>NAME HERE</title>
+  <title>PhilanthroPoints</title>
   <meta name="description" content="Index-search">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
@@ -124,7 +124,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -145,12 +145,12 @@ input[type=text] {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
+input:focus {
   background-color: #fff;
   border-bottom: 2px solid #5fbae9;
 }
 
-input[type=text]:placeholder {
+input:placeholder {
   color: #cccccc;
 }
 
@@ -270,10 +270,14 @@ input[type=text]:placeholder {
   width:60%;
 }
 
+body{
+  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('static/volunteering.jpg');
+}
+
 </style>
 </head>
 
-<body>
+<body >
   {% include 'header.html' %}
 
   <div class="wrapper fadeInDown">
@@ -282,13 +286,13 @@ input[type=text]:placeholder {
     
         <!-- Icon -->
         <div class="fadeIn first">
-          <p>Welcome to NAME HERE</p>
+          <p>Start volunteering now!</p>
         </div>
     
         <!-- Login Form -->
         <form action="/login" method="post">
           <input type="text" id="login_email" class="fadeIn second" name="login_email" placeholder="login">
-          <input type="text" id="password" class="fadeIn third" name="login_pass" placeholder="password">
+          <input type="password" id="pass" class="fadeIn third" name="login_pass" placeholder="Password">
           <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
     

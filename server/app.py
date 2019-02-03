@@ -5,6 +5,7 @@ from flask_mail import Mail
 import requests
 import os
 import pickle
+import random 
 
 app =Flask(__name__)
 
@@ -23,20 +24,56 @@ session_tracker = []
 class SessionTracker():
     def __init__(self):
         self.currentEmail = ""
+        self.currentName = ""
+        self.genericImgURLs = ["https://content-calpoly-edu.s3.amazonaws.com/orientation/1/images/our-team/join-us/wowLeaders.jpg", "https://www.volunteer.va.gov/images/youth01.jpg", "https://www.utdallas.edu/news/imgs/photos-2013-11/student-volunteers-700-2013-11.jpg", "https://www.signupgenius.com/cms/images/college/college-volunteers.jpg"]
+        self.salvation = "https://salvationarmynorth.org/wp-content/uploads/2015/01/Volunteer-story-562x374.jpg"
+        self.dog = "https://i0.wp.com/www.pawsforirvinganimals.org/wp-content/uploads/2014/02/volunteer3.jpg"
+        self.kid = "https://www.adoptuskids.org/_assets/images/AUSK/pages/ways-to-help-575x385.jpg"
 
-    def updateSession(self, x):
+    def updateSession(self, x, y):
         self.currentEmail = x
+        self.currentName = y
 
-    def getIt(self):
+    def getEmail(self):
         return self.currentEmail
     
+    def getName(self):
+        return self.currentName
+    
+    def getImage(self, x=0):
+        if (x == 0):
+            return random.choice(self.genericImgURLs)
+        elif (x == 1):
+            return self.salvation
+        elif (x == 2):
+            return self.dog
+        else:
+            return self.kid
+    
+    def getAllImages():
+        return self.genericImgURLs
 
-@app.route('/omg', methods=["GET", "POST"])
-def omg():
-    res = requests.post('http://localhost:5000/sendMail', json={"name":"Daniel", "organisation":"Facebook", "email":"daviesdg@uci.edu", "message":"Hello"})
-    print (res)
-    return redirect("/")
 
+@app.route("/redeem", methods=["POST"])
+def redeem():
+    #remove points
+    content = request.json
+    points = content['points']
+    email = content['email']
+    other_data_dict = {}
+
+    with open('userdata', 'rb') as handle:
+        other_data_dict = pickle.load(handle)
+
+    other_data_dict[email]['points'] = other_data_dict[email]['points'] - points
+
+    with open('userdata', 'wb') as handle:
+        pickle.dump(other_data_dict, handle)
+
+    res = requests.post('http://localhost:5000/sendMail', json={"name":"Daniel", "organisation":"UCI", "email":"chase19@ymail.com", "message":"You've redeemed "+ content['product']})
+    response = Response(status=200)
+    return response
+    
 @app.route('/sendMail', methods=["GET", "POST"])
 def sendMail():
     content = request.json
@@ -50,26 +87,73 @@ def sendMail():
     mail.send(msg)
     return redirect("/")
 
+@app.route("/register", methods=["POST"])
+def register():
+    content = request.json
+    email = content['email']
+    name = content['Organization']
+    event = content['EventName']
+    data_dict = {}
+    with open('eventdata', 'rb') as handle:
+        data_dict = pickle.load(handle)
+    
+    data_dict[name+event]['UserList'].append(email)
+    with open('eventdata', 'wb') as handle:
+        pickle.dump(data_dict, handle)
+    
+    other_data_dict = {}
+    with open('userdata', 'rb') as handle:
+        other_data_dict = pickle.load(handle)
+    other_data_dict[email]['points'] = other_data_dict[email]['points'] + 20
+    response = Response(status=200)
+    return response
+
+@app.route('/host', methods=["GET", "POST"])
+def host():
+    return render_template("hostevent.html")
+
+@app.route('/createhost', methods=["POST"])
+def createhost():
+    x1 = request.form['Organization']
+    x2 = request.form['EventName']
+    x3 = request.form['Description']
+    x4 = request.form['Location']
+    x5 = request.form['Day/Time']
+
+    data_dict = {}
+    with open('eventdata', 'rb') as handle:
+        data_dict = pickle.load(handle)
+    picType = 0
+    if ("animal" in x2 or "animal" in x3):
+        picType = 2
+    elif ("child" in x2 or "child" in x3):
+        picType = 3
+    elif ("homeless" in x2 or "homeless" in x3):
+        picType = 1
+
+    data_dict[x1+x2] = {'Charity':x1, 'EventName':x2, 'Description':x3, 'Location':x4, 'DateTime':x5, 'UserList':[], 'pictureUrl':session_tracker.getImage(picType)}
+    with open('eventdata', 'wb') as handle:
+        pickle.dump(data_dict, handle)
+    return redirect("/alreadyLogged")
+
 @app.route('/allevents', methods=["GET"])
 def allEvents():
     #sort by date
     retVal = []
-
-    imgs = ["https://pbs.twimg.com/media/DybYTOaW0AACWjX.jpg", "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg", "https://images.pexels.com/photos/34950/pexels-photo.jpg", "https://images.pexels.com/photos/257840/pexels-photo-257840.jpeg", "https://images.pexels.com/photos/4827/nature-forest-trees-fog.jpeg", "https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg", "https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg", "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg", "https://images.pexels.com/photos/158607/cairn-fog-mystical-background-158607.jpeg", "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg"]
-    names = ["Event1", "Event2", "Event3", "Event4", "Event5", "Event6", "Event7", "Event8", "Event9", "EventA"]
-    charities = ["Char1", "Char2", "Char3", "Char4", "Char5", "Char6", "Char7", "Char8", "Char9", "CharA"]
-    dates = ["02/02/19", "02/03/19", "02/04/19", "02/05/19", "02/06/19", "02/07/19", "02/08/19", "02/09/19", "02/10/19", "02/1/19"]
-    descs = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+    data_dict = {}
+    with open('eventdata', 'rb') as handle:
+        data_dict = pickle.load(handle)
     
-    for i in range(10):    
+    for i in data_dict.keys():    
         testDict = {}
-        testDict['pictureUrl'] = imgs[i]
-        testDict['name'] = names[i]
-        testDict['charity'] = charities[i]
-        testDict['date'] = dates[i]
-        testDict['description'] = descs[i]
+        testDict['pictureUrl'] = data_dict[i]['pictureUrl']
+        testDict['EventName'] = data_dict[i]['EventName']
+        testDict['Charity'] = data_dict[i]['Charity']
+        testDict['DateTime'] = data_dict[i]['DateTime']
+        testDict['Description'] = data_dict[i]['Description']
         retVal.append(testDict)
     
+    retVal = retVal[::-1]
     return jsonify(retVal)
 
 @app.route('/')
@@ -79,23 +163,50 @@ def landing():
 @app.route("/getusers")
 def dasdass():
     k = {}
+    retVal = []
+
     with open('userdata', 'rb') as handle:
         k = pickle.load(handle)
+    dataList = [(i, k[i]['points']) for i in k.keys()]
+    new = sorted(dataList, key=lambda x: x[1])
+    for item in new:
+        myDict = {}
+        myDict['email'] = item[0]
+        myDict['name'] = k[item[0]]['name']
+        myDict['points'] = item[1]
+        retVal.append(myDict)
+    return jsonify(retVal[::-1])
+
+@app.route("/getUser/<email>")
+def dasdadhjsdasss(email):
+    k = {}
+    with open('charitydata', 'rb') as handle:
+        k = pickle.load(handle)
         print(k)
-    return jsonify(k)
+    try:
+        return jsonify(k[email])
+    except:
+        return jsonify({})
+
+@app.route('/alreadyLogged')
+def loginAgain():
+    return render_template("fff.html", Name=session_tracker.getName())
+
 
 @app.route("/login", methods=["POST"])
 def login():
     data_dict = {}
     x = request.form['login_email']
-    session_tracker.updateSession(x)
-    with open('charitydata', 'rb') as handle:
-        data_dict = pickle.load(handle)
-        print(data_dict)
-    
+    try:
+        with open('charitydata', 'rb') as handle:
+            data_dict = pickle.load(handle)
+            session_tracker.updateSession(x, data_dict[x]['name'])
+    except:
+        return render_template("landing.html")
+
     try:
         data = data_dict[x]
-        return render_template("fff.html", Name=data[0])
+        return render_template("fff.html", Name=data['name'])
     except:
         return render_template("landing.html")
 
@@ -115,17 +226,26 @@ def createuser():
     response = Response(status=200)
     return response
 
-@app.route('/createevent', methods=["POST"])
-def createevent():
+@app.route('/getevents/<email>', methods=["GET"])
+def getevenetstuff(email):
+    retVal = []
     data_dict = {}
-    content = request.json
     with open('eventdata', 'rb') as handle:
         data_dict = pickle.load(handle)
-    data_dict[content['email']] = content['name']
-    with open('eventdata', 'wb') as handle:
-        pickle.dump(data_dict, handle)
-    response = Response(status=200)
-    return response
+    
+    for i in data_dict.keys():
+        if email in data_dict[i]['UserList']:
+            retDict = {}
+            retDict["Charity"] = data_dict[i]['Charity']
+            retDict["DateTime"] = data_dict[i]['DateTime']
+            retDict["Description"] = data_dict[i]['Description']
+            retDict["EventName"] = data_dict[i]['EventName']
+            retDict["Location"] = data_dict[i]['Location']
+            retDict["pictureUrl"] = data_dict[i]['pictureUrl']
+            retVal.append(retDict)
+
+    retVal = retVal[::-1]
+    return jsonify(retVal)
 
 @app.route('/charity')
 def charitypage():
@@ -140,17 +260,11 @@ def createcharity():
     with open('charitydata', 'rb') as handle:
         data_dict = pickle.load(handle)
         print(data_dict)
-    data_dict[x2] = [x1 ,x3]
+    data_dict[x2] = {'name':x1 ,'phone':x3, 'points':0}
     with open('charitydata', 'wb') as handle:
         pickle.dump(data_dict, handle)
     response = Response(status=200)
     return redirect("/")
-
-@app.route('/mkay/<email>')
-def cjsdjd(email):
-    res = requests.post('http://localhost:5000/createuser', json={"name":"Daniel", "email":email})
-    print (res)
-    return "5"
 
 if __name__ == '__main__':
     app.debug = True
@@ -163,9 +277,10 @@ if __name__ == '__main__':
         with open('charitydata', 'wb') as handle:
             pickle.dump(b, handle)
         
-    if (not os.path.isfile(os.getcwd() + "/charitydata")):
+    if (not os.path.isfile(os.getcwd() + "/eventdata")):
         with open('eventdata', 'wb') as handle:
             pickle.dump(b, handle)
+        
     
     session_tracker = SessionTracker()
     app.run(host = '0.0.0.0',port=5000)
