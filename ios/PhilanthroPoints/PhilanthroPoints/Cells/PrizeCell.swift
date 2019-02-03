@@ -35,7 +35,7 @@ class PrizeCell: UITableViewCell {
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         print(json)
         // create post request
-        let url = URL(string: "http://129.65.102.125:5000/redeem")!
+        let url = URL(string: "http://207.62.168.42:5000/redeem")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         

@@ -27,7 +27,7 @@ class LeaderboardViewController: UIViewController, UITableViewDelegate, UITableV
     
     func getLeaderboard() {
         // Set Up Request
-        let url = URL(string: "http://129.65.102.125:5000/getusers")!
+        let url = URL(string: "http://207.62.168.42:5000/getusers")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in

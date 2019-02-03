@@ -13,7 +13,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var qrCode: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UIButton!
+    
     
     var profile = Profile(name: "name", points: 0)
     var events = [Event]()
@@ -25,6 +26,8 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        pointsLabel.titleLabel?.adjustsFontSizeToFitWidth = true
+        
         // Configure Layout
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 4
@@ -34,11 +37,26 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
         layout.itemSize = posterSize
         
         getProfile()
+        generateQRCode()
     }
     
+    func generateQRCode() {
+        let data = "http://207.62.168.42:5000/checkin/chase19@ymail.com".data(using: .utf8)!
+        let filter = CIFilter(name: "CIQRCodeGenerator", parameters: ["inputMessage" : data, "inputCorrectionLevel":"L"])
+        let ciimage = filter!.outputImage!
+        let transform = CGAffineTransform(scaleX: 20.0, y: 20.0)
+        
+        let image = ciimage.transformed(by: transform)
+        let img = UIImage(ciImage: image)
+        qrCode.image = img
+    }
+    
+    @IBAction func pointsPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "prizes", sender: self)
+    }
     func getProfile() {
         // Set Up Request
-        let url = URL(string: "http://129.65.102.125:5000/getUser/asdf@gmail.com")!
+        let url = URL(string: "http://207.62.168.42:5000/getUser/chase19@ymail.com")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -53,7 +71,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
                 
                 self.profile = Profile(name: profileJSON["name"] as! String, points: profileJSON["points"] as! Int)
                 self.nameLabel.text = self.profile.name
-                self.pointsLabel.text = String(self.profile.points) + " Points"
+                self.pointsLabel.titleLabel?.text = String(self.profile.points) + " Points"
                 
                 print(self.profile)
                 self.getEventsByUser(userEmail: "")//self.profile["email"] as! String)
@@ -66,7 +84,7 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func getEventsByUser(userEmail: String) {
         // Set Up Request
-        let url = URL(string: "http://129.65.102.125:5000/getevents/chase19@ymail.com")!// + userEmail)!
+        let url = URL(string: "http://207.62.168.42:5000/getevents/chase19@ymail.com")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -132,16 +150,17 @@ class ProfileViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let eventVC = segue.destination as! EventDetailViewController
-        let eventCell = sender as! EventCollectionViewCell
-        
-        eventVC.event = Event(name: eventCell.eventName.text!,
-                          charity: eventCell.charity.text!,
-                          date: eventCell.date.text!,
-                          desc: eventCell.desc,
-                          photoUrl: "")
-        eventVC.registered = true
-        
+        if segue.identifier == "eventDetails" {
+            let eventVC = segue.destination as! EventDetailViewController
+            let eventCell = sender as! EventCollectionViewCell
+            
+            eventVC.event = Event(name: eventCell.eventName.text!,
+                              charity: eventCell.charity.text!,
+                              date: eventCell.date.text!,
+                              desc: eventCell.desc,
+                              photoUrl: "")
+            eventVC.registered = true
+        }
     }
     
 
