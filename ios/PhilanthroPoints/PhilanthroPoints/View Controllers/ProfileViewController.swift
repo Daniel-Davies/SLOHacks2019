@@ -1,5 +1,5 @@
 //
-//  EventsViewController.swift
+//  ProfileViewController.swift
 //  PhilanthroPoints
 //
 //  Created by Chase Carnaroli on 2/2/19.
@@ -7,13 +7,15 @@
 //
 
 import UIKit
-import AlamofireImage
 
-class EventsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
-    @IBOutlet weak var collectionView: UICollectionView!
+class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
     
-    var photos = [UIImage]()
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var qrCode: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var pointsLabel: UILabel!
+    
+    var profile = Profile(name: "name", points: 0)
     var events = [Event]()
     
     override func viewDidLoad() {
@@ -22,24 +24,21 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         /// CollectionView Setup
         collectionView.delegate = self
         collectionView.dataSource = self
-        //collectionView?.contentInset = UIEdgeInsets(top: 23, left: 16, bottom: 10, right: 16)
         
-        // CollectionView layout
+        // Configure Layout
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
         let width = (view.frame.size.width - layout.minimumInteritemSpacing*2)/2
         let posterSize = CGSize(width: width, height: width*1.5)
         layout.itemSize = posterSize
-
-        // Load events
-        getEvents()
-    
+        
+        getProfile()
     }
     
-    func getEvents() {
+    func getProfile() {
         // Set Up Request
-        let url = URL(string: "http://129.65.102.125:5000/allevents")!
+        let url = URL(string: "http://129.65.102.125:5000/getUser/asdf@gmail.com")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -50,8 +49,34 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
                 //let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
                 // Get the array of movies
-                let eventsJSON = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
+                let profileJSON = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
+                self.profile = Profile(name: profileJSON["name"] as! String, points: profileJSON["points"] as! Int)
+                
+                print(self.profile)
+                self.getEventsByUser(userEmail: "")//self.profile["email"] as! String)
+                // Reload table view data
+                self.collectionView.reloadData()
+            }
+        }
+        task.resume()
+    }
+    
+    func getEventsByUser(userEmail: String) {
+        // Set Up Request
+        let url = URL(string: "http://129.65.102.125:5000/getevents/asdf@gmail.com")!// + userEmail)!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: request) { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let data = data {
+                //let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+    
+                // Get the array of movies
+                let eventsJSON = try! JSONSerialization.jsonObject(with: data, options: []) as! [[String: Any]]
+                print(eventsJSON)
                 for eventJSON in eventsJSON {
                     let event = Event(
                         name: eventJSON["name"] as? String ?? "",
@@ -61,7 +86,9 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
                     )
                     self.events.append(event)
                 }
+                print(self.events)
                 
+    
                 // Reload table view data
                 self.collectionView.reloadData()
             }
@@ -70,8 +97,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     /*
-    // MARK: - CollectionView Functions
-    */
+     // MARK: - CollectionView Functions
+     */
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return events.count
     }
@@ -81,7 +108,7 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         // Get Photo
         // photo = photos[indexPath.row]
-        
+        print("loaded")
         // Get Event
         let event = self.events[indexPath.row]
         
