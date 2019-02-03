@@ -12,5 +12,6 @@ struct Event {
     var name: String
     var charity: String
     var date: String
+    var desc: String
     var photoUrl: String
 }

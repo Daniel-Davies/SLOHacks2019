@@ -19,6 +19,7 @@
 		C9FDD8AD22068255004BE9AE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FDD8AC22068255004BE9AE /* Event.swift */; };
 		C9FDD8AF22068B24004BE9AE /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FDD8AE22068B24004BE9AE /* LeaderboardTableViewCell.swift */; };
 		C9FDD8B1220691CE004BE9AE /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FDD8B0220691CE004BE9AE /* Profile.swift */; };
+		C9FDD8B32206F099004BE9AE /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FDD8B22206F099004BE9AE /* EventDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		C9FDD8AC22068255004BE9AE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C9FDD8AE22068B24004BE9AE /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		C9FDD8B0220691CE004BE9AE /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		C9FDD8B22206F099004BE9AE /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				C9FDD89922060FDF004BE9AE /* EventsViewController.swift */,
+				C9FDD8B22206F099004BE9AE /* EventDetailViewController.swift */,
 				C9FDD8A722067A60004BE9AE /* ProfileViewController.swift */,
 				C9FDD8A92206805B004BE9AE /* LeaderboardViewController.swift */,
 			);
@@ -255,6 +258,7 @@
 				C9FDD8A022061E10004BE9AE /* EventCollectionViewCell.swift in Sources */,
 				C9FDD8B1220691CE004BE9AE /* Profile.swift in Sources */,
 				C9FDD887220587C9004BE9AE /* AppDelegate.swift in Sources */,
+				C9FDD8B32206F099004BE9AE /* EventDetailViewController.swift in Sources */,
 				C9FDD8AA2206805B004BE9AE /* LeaderboardViewController.swift in Sources */,
 				C9FDD8A822067A60004BE9AE /* ProfileViewController.swift in Sources */,
 				C9FDD8AD22068255004BE9AE /* Event.swift in Sources */,
