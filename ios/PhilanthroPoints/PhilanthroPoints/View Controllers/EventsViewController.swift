@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class EventsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -30,26 +31,8 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         let width = (view.frame.size.width - layout.minimumInteritemSpacing*2)/2
         let posterSize = CGSize(width: width, height: width*1.5)
         layout.itemSize = posterSize
-        
-        // Load photos
-        if let photo = UIImage(named: "2"){
-            photos.append(photo)        }
-        if let photo = UIImage(named: "6"){
-            photos.append(photo)
-        }
-        if let photo = UIImage(named: "3"){
-            photos.append(photo)
-        }
-        if let photo = UIImage(named: "1"){
-            photos.append(photo)
-        }
-        if let photo = UIImage(named: "5"){
-            photos.append(photo)
-        }
-        if let photo = UIImage(named: "4"){
-            photos.append(photo)
-        }
-        
+
+        // Load events
         getEvents()
     
     }
@@ -93,11 +76,18 @@ class EventsViewController: UIViewController, UICollectionViewDelegate, UICollec
         // Get Event
         let event = self.events[indexPath.row]
         
-        // Set Photo
         //cell.image.image = photo
-        cell.eventName.text = event["charity"] as! String
-        cell.date.text = event["date"] as! String
-        cell.charity.text = event["charity"] as! String
+        cell.eventName.text = event["name"] as? String
+        cell.date.text = event["date"] as? String
+        cell.charity.text = event["charity"] as? String
+        
+        // Get Event Picture
+        //let baseUrl = "https://pbs.twimg.com/media/"
+        //let picUrl = event["pictureUrl"] as! String
+        let picUrl = URL(string: event["pictureUrl"] as! String)
+        
+        // Set Movie Poster
+        cell.image.af_setImage(withURL: picUrl!)
         
         return cell
     }

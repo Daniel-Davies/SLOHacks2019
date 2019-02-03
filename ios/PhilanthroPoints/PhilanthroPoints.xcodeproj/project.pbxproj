@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34A259EF8D32C8625661EF5D /* Pods_PhilanthroPoints.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DFD8AA5524EF59A5EFBA3A /* Pods_PhilanthroPoints.framework */; };
 		C9FDD887220587C9004BE9AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FDD886220587C9004BE9AE /* AppDelegate.swift */; };
 		C9FDD88C220587C9004BE9AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FDD88A220587C9004BE9AE /* Main.storyboard */; };
 		C9FDD88E220587C9004BE9AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9FDD88D220587C9004BE9AE /* Assets.xcassets */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34DFD8AA5524EF59A5EFBA3A /* Pods_PhilanthroPoints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhilanthroPoints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45FBBD74C76AB74BC5C4D860 /* Pods-PhilanthroPoints.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhilanthroPoints.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhilanthroPoints/Pods-PhilanthroPoints.release.xcconfig"; sourceTree = "<group>"; };
+		6315E585034751EBCA07F145 /* Pods-PhilanthroPoints.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhilanthroPoints.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhilanthroPoints/Pods-PhilanthroPoints.debug.xcconfig"; sourceTree = "<group>"; };
 		C9FDD883220587C9004BE9AE /* PhilanthroPoints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhilanthroPoints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FDD886220587C9004BE9AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9FDD88B220587C9004BE9AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34A259EF8D32C8625661EF5D /* Pods_PhilanthroPoints.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54F1EF2A614850A205320D43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34DFD8AA5524EF59A5EFBA3A /* Pods_PhilanthroPoints.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6CEC02C509667C54460B3C75 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6315E585034751EBCA07F145 /* Pods-PhilanthroPoints.debug.xcconfig */,
+				45FBBD74C76AB74BC5C4D860 /* Pods-PhilanthroPoints.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C9FDD87A220587C8004BE9AE = {
 			isa = PBXGroup;
 			children = (
 				C9FDD885220587C9004BE9AE /* PhilanthroPoints */,
 				C9FDD884220587C9004BE9AE /* Products */,
+				6CEC02C509667C54460B3C75 /* Pods */,
+				54F1EF2A614850A205320D43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,9 +122,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9FDD895220587C9004BE9AE /* Build configuration list for PBXNativeTarget "PhilanthroPoints" */;
 			buildPhases = (
+				8811C1D19CD60D3F915C07FE /* [CP] Check Pods Manifest.lock */,
 				C9FDD87F220587C9004BE9AE /* Sources */,
 				C9FDD880220587C9004BE9AE /* Frameworks */,
 				C9FDD881220587C9004BE9AE /* Resources */,
+				FC4CFA3AB8E88F46E63B713D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -156,6 +182,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8811C1D19CD60D3F915C07FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhilanthroPoints-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC4CFA3AB8E88F46E63B713D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PhilanthroPoints/Pods-PhilanthroPoints-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhilanthroPoints/Pods-PhilanthroPoints-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C9FDD87F220587C9004BE9AE /* Sources */ = {
@@ -308,6 +375,7 @@
 		};
 		C9FDD896220587C9004BE9AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6315E585034751EBCA07F145 /* Pods-PhilanthroPoints.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -326,6 +394,7 @@
 		};
 		C9FDD897220587C9004BE9AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45FBBD74C76AB74BC5C4D860 /* Pods-PhilanthroPoints.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
