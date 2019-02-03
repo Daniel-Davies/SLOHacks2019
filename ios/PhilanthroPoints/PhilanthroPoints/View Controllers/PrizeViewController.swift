@@ -10,7 +10,11 @@ import UIKit
 
 class PrizeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var prizes=[Prize(name: "Pizza Hut", points: 25, redeem: "2 for 1 pizza"),Prize(name:"Dairy Queen", points:15, redeem:"Free Blizzard!"),Prize(name:"Coffee Bean", points:5, redeem:"free  coffee!"),Prize(name:"Peet's Coffee", points:5, redeem:"Free tea!"),Prize(name:"Wing Stop", points:20, redeem:"1/2 off 20 piece")]
+    var prizes=[Prize(name: "Pizza Hut", points: 25, redeem: "2 for 1 pizza",product:"yuh",photo:UIImage(named: "pizzahut")!),
+                Prize(name:"Dairy Queen", points:15, redeem:"Free Blizzard!",product:"yuh",photo:UIImage(named: "dq")!),
+                Prize(name:"Coffee Bean", points:5, redeem:"Free  coffee!",product:"yuh",photo:UIImage(named: "coffeebean")!),
+                Prize(name:"Peet's Coffee", points:5, redeem:"Free tea!",product:"yuh",photo:UIImage(named: "peets")!),
+                Prize(name:"Wing Stop", points:20, redeem:"50% off",product:"yuh",photo:UIImage(named: "wingstop")!)]
     @IBOutlet weak var PrizeTableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,8 +33,10 @@ class PrizeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.view=self
         
         let prize = prizes[indexPath.row]
+        cell.prize = prize
         cell.Points.text=String(prize.points)
         cell.RewardAmount.text=prize.redeem
+        cell.PrizeImage.image = prize.photo
         
         return cell
     }

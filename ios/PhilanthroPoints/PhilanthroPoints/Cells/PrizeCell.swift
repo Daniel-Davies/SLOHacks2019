@@ -14,44 +14,48 @@ class PrizeCell: UITableViewCell {
     @IBOutlet weak var RewardAmount: UILabel!
     @IBOutlet weak var Points: UILabel!
     var view = UIViewController()
-    var prize = Prize(name:"none",points:0,redeem:"i", product:"o")
+    var prize = Prize(name:"none",points:0,redeem:"i", product:"o", photo: UIImage(named: "pizzahut")!)
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     @IBAction func RedeemTap(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Do you wish to redeem your points?", message: "25 points will be deducted from your total for 5$ off Tacqueria Santa Cruz.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Do you wish to redeem your points?", message: "\(prize.points) points will be deducted from your total for \(prize.redeem)", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: sendEmail()))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in self.sendEmail(email: "chase19@ymail.com",points: self.prize.points, product: self.prize.redeem)}))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         
         view.present(alert, animated: true, completion:nil)
     }
     
-    func sendEmail() {
-        // Set Up Request
+    func sendEmail(email: String, points: Int, product: String) {
+        let json: [String: Any] = ["email": email,
+                                   "points": points,
+                                   "product": product]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        print(json)
+        // create post request
         let url = URL(string: "http://129.65.102.125:5000/redeem")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            // This will run when the network request returns
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                //let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                // Get the array of movies
-                let profileJSON = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                self.prize = Prize(
-                    name: profileJSON["product"] as! String,
-                    points: profileJSON["points"] as! Int,
-                    redeem: profileJSON["product"] as! String,
-                    product: profileJSON["product"] as! String)
-                
-                print(self.prize)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        // insert json data to the request
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print(responseJSON)
             }
         }
+        
         task.resume()
     }
     

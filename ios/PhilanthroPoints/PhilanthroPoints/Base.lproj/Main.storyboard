@@ -477,7 +477,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T84-Ih-Z9o">
-                                                    <rect key="frame" x="175" y="11" width="47.5" height="20"/>
+                                                    <rect key="frame" x="164" y="11" width="47.5" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -490,19 +490,19 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rewards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrX-36-urU">
-                                                    <rect key="frame" x="294" y="11" width="66" height="21"/>
+                                                    <rect key="frame" x="284" y="11" width="66" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5 off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWh-pl-mfF">
-                                                    <rect key="frame" x="303.5" y="40" width="47" height="21"/>
+                                                    <rect key="frame" x="293.5" y="40" width="47" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZe-dg-w76">
-                                                    <rect key="frame" x="188.5" y="39" width="21" height="21"/>
+                                                    <rect key="frame" x="177" y="39" width="21" height="21"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -516,14 +516,14 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="lrX-36-urU" firstAttribute="leading" secondItem="T84-Ih-Z9o" secondAttribute="trailing" constant="71.5" id="3T8-Lz-tTX"/>
                                                 <constraint firstItem="SZe-dg-w76" firstAttribute="centerX" secondItem="T84-Ih-Z9o" secondAttribute="centerX" id="4Y0-87-Sh1"/>
                                                 <constraint firstItem="yWh-pl-mfF" firstAttribute="centerX" secondItem="lrX-36-urU" secondAttribute="centerX" id="FCY-dh-BWg"/>
                                                 <constraint firstItem="lrX-36-urU" firstAttribute="top" secondItem="khN-4i-WFd" secondAttribute="topMargin" id="IHz-8X-ffg"/>
                                                 <constraint firstItem="SZe-dg-w76" firstAttribute="top" secondItem="T84-Ih-Z9o" secondAttribute="bottom" constant="8" id="Mj6-mp-vbZ"/>
                                                 <constraint firstItem="bUM-uU-4UB" firstAttribute="centerX" secondItem="khN-4i-WFd" secondAttribute="centerX" id="NK7-bE-j8O"/>
                                                 <constraint firstItem="jLS-CO-iMW" firstAttribute="leading" secondItem="khN-4i-WFd" secondAttribute="leadingMargin" id="OLo-T3-c9R"/>
-                                                <constraint firstItem="lrX-36-urU" firstAttribute="trailing" secondItem="khN-4i-WFd" secondAttribute="trailingMargin" id="Vr8-0d-5x0"/>
+                                                <constraint firstItem="T84-Ih-Z9o" firstAttribute="centerX" secondItem="khN-4i-WFd" secondAttribute="centerX" id="PX1-KK-C7G"/>
+                                                <constraint firstAttribute="trailing" secondItem="lrX-36-urU" secondAttribute="trailing" constant="25" id="R3Y-K7-XQh"/>
                                                 <constraint firstItem="bUM-uU-4UB" firstAttribute="bottom" secondItem="khN-4i-WFd" secondAttribute="bottomMargin" id="hm5-fM-gDW"/>
                                                 <constraint firstItem="T84-Ih-Z9o" firstAttribute="top" secondItem="khN-4i-WFd" secondAttribute="topMargin" id="tzr-tv-lnm"/>
                                                 <constraint firstItem="jLS-CO-iMW" firstAttribute="top" secondItem="khN-4i-WFd" secondAttribute="topMargin" id="wII-PN-2fT"/>
