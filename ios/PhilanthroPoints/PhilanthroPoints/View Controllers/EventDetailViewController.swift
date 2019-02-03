@@ -58,7 +58,7 @@ class EventDetailViewController: UIViewController {
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
   
         // create post request
-        let url = URL(string: "http://129.65.102.125:5000/register")!
+        let url = URL(string: "http://207.62.168.42:5000/register")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
