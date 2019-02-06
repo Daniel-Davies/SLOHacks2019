@@ -13,9 +13,9 @@ Incentivising members of the community to volunteer for local charities.
 
 Small, local charities form a key part of philanthrophic projects across the globe. Without them, millions of people around the world would be suffering with no one to help them. Volunteering your time at a local charity can be a fulfilling experience that can create a great positive impact in your local community.
 
-In practice however, local charities can find it very difficult to sustain themselves due to the lack of people that many such charities experience. Since getting volunteers can be hard for these charities, we thought we'd help them out by creating further incentive for people in the community to help with our app, PhilianthroPoints.
+In practice however, local charities can find it very difficult to sustain themselves due to the lack of people that many such charities have come through. Since getting volunteers can be hard for these charities, we thought we'd help them out by creating further incentive for people in the community to help with our app, PhilianthroPoints.
 
-PhilianthroPoints allows volunteers to find out about charity events in the local area, and upon participating an event, earn points through the app which they can then redeem for giftcards to partnering companies. The experience of volunteering time to a local charity is gamified by keeping a leaderboard (sorted by location) of who has donated the most of their time to charities for a given time frame.
+PhilianthroPoints allows volunteers to find out about charity events in the local area, and upon participating an event, earn points through the app which they can then redeem for giftcards to partnering companies. The experience of volunteering time to a local charity is gamified by keeping a leaderboard (partitioned by location) of who has donated the most of their time to charities for a given time frame.
 
 This means volunteers now have the feel good factor of helping a good cause, but also upon finding a charity they can connect to on our app, can also challenge themselves against their peers and earn small treats for doing so.
 
@@ -23,14 +23,14 @@ This means volunteers now have the feel good factor of helping a good cause, but
 
 The idea of the project is to have two main platforms for our two main user types: charities that host/ run events, and the volunteers who sign up to these events and redeem the rewards for doing so. 
 
-The website is designed for the charities, so that an organisation can access our resources from say a work computer, meanwhile the app is designed to be much less formal and can be accessed by anyone on their iOS mobile device.
+The website is designed for the charities, so that an organisation can access our resources from, let's say, a work computer, meanwhile the app is designed to be much less formal and can be accessed by anyone on their iOS mobile device.
 
 #### Web Server
 
-The website has two main goals:
+The web server has two main goals:
 
 * Enable charities to host events and track their previous events by serving HTML pages
-* Act as a centralising data storage and resource for the iOS app through supporting API calls
+* Act as a centralising data storage and resource unit for the iOS app, which is accessed through supporting API calls
 
 The server itself is written in python flask. More details can be found [here](http://flask.pocoo.org/). API calls for the app are provided as endpoints, as are webpage requests.
 
@@ -38,9 +38,9 @@ The email SMTP client uses the Flask-Mail plugin, which sends messages through a
 
 ###### Web Frontend
 
-The frontend pages are written in simple HTML code, exploiting features of the Flask framework for modular code where possible.
+The frontend pages are written in HTML code aided with features of the Flask framework for modular code where possible.
 
-Page styling is aided by the Twitter Bootstrap framework, along with custom CSS for more complicated page designs.
+Page styling is done through the Twitter Bootstrap framework, along with custom CSS for more complicated page designs.
 
 ###### Data storage/ API calls
 
@@ -49,6 +49,8 @@ Data is managed and stored through calls to endpoints, which abstracts away data
 API calls then retrieve this data and process as necessary when called on by the iOS app. Examples include getUser/[email], which retrieves a user profile, or getEvents/, which retrieved all events etc.
 
 #### iOS Interface
+
+<>
 
 ## Trying the project yourself
 
