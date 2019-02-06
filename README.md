@@ -1,5 +1,5 @@
 # PhilanthroPoints
-Incestivising members of the community to volunteer for local charities.
+Incentivising members of the community to volunteer for local charities.
 
 ### The Team
 <html>
@@ -11,7 +11,14 @@ Incestivising members of the community to volunteer for local charities.
 
 ### The Project
 
-\**Insert project description here*\*
+Small, local charities form a key part of philanthrophic projects across the globe. Without them, millions of people around the world would be suffering with no one to help them. Volunteering your time at a local charity can be a fulfilling experience that can create a great positive impact in your local community.
+
+In practice however, local charities can find it very difficult to sustain themselves due to the lack of people that many such charities experience. Since getting volunteers can be hard for these charities, we thought we'd help them out by creating further incentive for people in the community to help with our app, PhilianthroPoints.
+
+PhilianthroPoints allows volunteers to find out about charity events in the local area, and upon participating an event, earn points through the app which they can then redeem for giftcards to partnering companies. The experience of volunteering time to a local charity is gamified by keeping a leaderboard (sorted by location) of who has donated the most of their time to charities for a given time frame.
+
+This means volunteers now have the feel good factor of helping a good cause, but also upon finding a charity they can connect to on our app, can also challenge themselves against their peers and earn small treats for doing so.
+
 ## Implementation
 
 The idea of the project is to have two main platforms for our two main user types: charities that host/ run events, and the volunteers who sign up to these events and redeem the rewards for doing so. 
