@@ -1,7 +1,7 @@
 # PhilanthroPoints
 Incentivising members of the community to volunteer for local charities.
 
-### The Team
+## The Team
 <html>
     <img src="https://raw.githubusercontent.com/Daniel-Davies/SLOHacks2019/master/photos/team_photo.jpg" alt="Team Photo" width="550">
 </html>  
@@ -9,7 +9,7 @@ Incentivising members of the community to volunteer for local charities.
 |[Chase Carnaroli](https://www.linkedin.com/in/ChaseCarnaroli/)|[Syrsha Harvey](https://www.linkedin.com/in/syrshaharvey/)| [Mugen Blue](https://www.linkedin.com/in/mugenblue/) | [Daniel Davies](https://www.linkedin.com/in/daniel-davies-943668160/)
 |--|--|--|--| 
 
-### The Project
+## The Project
 
 Small, local charities form a key part of philanthrophic projects across the globe. Without them, millions of people around the world would be suffering with no one to help them. Volunteering your time at a local charity can be a fulfilling experience that can create a great positive impact in your local community.
 
@@ -67,3 +67,15 @@ The website uses a python server to support the website code and support API cal
 5. Now copy and paste "localhost:5000" into your browser
 6. The website front login page should appear.
 7. Do some exploring! Create an account, and login to see the remainder of the site.
+
+## Future of the project
+
+After our success at the hackathon, we would be keen to fully finish the project to see our idea come to a final, finished project and further develop our knowledge of both iOS and web design.
+
+#### Website further development
+
+Apart from general user interface aspects that there was no time left for (such as validation of input, hints and help functionality for users, and navigation maps), the analytics pages for the "upcoming events" and "past events" would need to linked to the backend in order to process real data rather than being based on static data. 
+
+It would also be beneficial to rewrite the server code in node.js or another more robust/ high performance server code framework, before deploying to the cloud and letting the application go live.
+
+#### iOS future work
