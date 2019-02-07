@@ -24,7 +24,7 @@ Users can look at volunteer events in their area, sign up for events, see what e
 <img src='https://raw.githubusercontent.com/Daniel-Davies/SLOHacks2019/master/gifs/iOS.gif' title='PhilanthroPoints App Walkthrough' width='' alt='PhilanthroPoints App Walkthrough' />
 
 After an event, charities can review statistics on how it went.  
-<img src='' title='Stats overview' width='' alt='Charities can review stats from their events' />
+<img src='https://raw.githubusercontent.com/Daniel-Davies/SLOHacks2019/master/gifs/gif2.gif' title='PhilanthroPoints App Walkthrough' width='' alt='PhilanthroPoints App Walkthrough' />
 
 ## The Inspiration
 Small, local charities form a key part of philanthrophic projects across the globe. Without them, millions of people around the world would be suffering with no one to help them. Volunteering your time at a local charity can be a fulfilling experience that can create a great positive impact in your local community.
