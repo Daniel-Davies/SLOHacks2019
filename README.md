@@ -65,7 +65,7 @@ API calls then retrieve this data and process as necessary when called on by the
 #### iOS Interface
 
 The iOS app consists of a 5 seperate views. "Events", "Leaderboard", "Profile", "EventsDescription", and "Prizes"
-<img src='' title='PhilanthroPoints Storyboard' width='' alt='PhilanthroPoints Storyboard in Xcode' />
+<img src='https://raw.githubusercontent.com/Daniel-Davies/SLOHacks2019/master/photos/ios_storyboard.png' title='PhilanthroPoints Storyboard' width='' alt='PhilanthroPoints Storyboard in Xcode' />
 
 Events are loaded in from the server and shown in a Collection View. The Leaderboard and Prizes are both shown in Table Views.
 All of the views are embedded within a Navigation Controller to allow for smooth navigation and backtracking.
