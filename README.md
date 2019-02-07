@@ -9,13 +9,27 @@ Incentivising members of the community to volunteer for local charities.
 |[Chase Carnaroli](https://www.linkedin.com/in/ChaseCarnaroli/)|[Syrsha Harvey](https://www.linkedin.com/in/syrshaharvey/)| [Mugen Blue](https://www.linkedin.com/in/mugenblue/) | [Daniel Davies](https://www.linkedin.com/in/daniel-davies-943668160/)
 |--|--|--|--| 
 
+## Awards 🏆
+"Best Social Good Hack" presented by [GoDaddy](https://www.godaddy.com/)  
+"Best Hack from Hathway Challenge" presented by [Hathway](https://wearehathway.com/)
+
 ## The Project
 
+PhilianthroPoints allows volunteers to find out about charity events in the local area, and upon participating an event, earn points through the app which they can then redeem for giftcards to partnering companies. The experience of volunteering time to a local charity is gamified by keeping a leaderboard (partitioned by location) of who has donated the most of their time to charities for a given time frame.  
+
+Charities post their events on our platform.  
+<img src='' title='Posting an Event Walkthrough' width='' alt='Walkthrough of charities posting an event on our platform' />
+
+Users can look at volunteer events in their area, sign up for events, see what events they are participating in, redeem points, and check their local leaderboard.  
+<img src='https://raw.githubusercontent.com/Daniel-Davies/SLOHacks2019/master/gifs/iOS.gif' title='PhilanthroPoints App Walkthrough' width='' alt='PhilanthroPoints App Walkthrough' />
+
+After an event, charities can review statistics on how it went.  
+<img src='' title='Stats overview' width='' alt='Charities can review stats from their events' />
+
+## The Inspiration
 Small, local charities form a key part of philanthrophic projects across the globe. Without them, millions of people around the world would be suffering with no one to help them. Volunteering your time at a local charity can be a fulfilling experience that can create a great positive impact in your local community.
 
 In practice however, local charities can find it very difficult to sustain themselves due to the lack of people that many such charities have come through. Since getting volunteers can be hard for these charities, we thought we'd help them out by creating further incentive for people in the community to help with our app, PhilianthroPoints.
-
-PhilianthroPoints allows volunteers to find out about charity events in the local area, and upon participating an event, earn points through the app which they can then redeem for giftcards to partnering companies. The experience of volunteering time to a local charity is gamified by keeping a leaderboard (partitioned by location) of who has donated the most of their time to charities for a given time frame.
 
 This means volunteers now have the feel good factor of helping a good cause, but also upon finding a charity they can connect to on our app, can also challenge themselves against their peers and earn small treats for doing so.
 
@@ -50,7 +64,11 @@ API calls then retrieve this data and process as necessary when called on by the
 
 #### iOS Interface
 
-<>
+The iOS app consists of a 5 seperate views. "Events", "Leaderboard", "Profile", "EventsDescription", and "Prizes"
+<img src='' title='PhilanthroPoints Storyboard' width='' alt='PhilanthroPoints Storyboard in Xcode' />
+
+Events are loaded in from the server and shown in a Collection View. The Leaderboard and Prizes are both shown in Table Views.
+All of the views are embedded within a Navigation Controller to allow for smooth navigation and backtracking.
 
 ## Trying the project yourself
 
@@ -81,3 +99,7 @@ Apart from general user interface aspects that there was no time left for (such 
 It would also be beneficial to rewrite the server code in node.js or another more robust/ high performance server code framework, before deploying to the cloud and letting the application go live.
 
 #### iOS future work
+
+Most of our time during the hackathon was dedicated towards creating models, mapping out the flow of the app, learning about CollectionViews, and getting the API requests to work with the server. Since everything is, for the most part, already well built out behind the scenes, any future iOS work would focus on improving the UI and adding animations. 
+
+We would also like to add the ability to donate to charities directly through our app, however that was a little bit outside of the scope of this hackathon.
