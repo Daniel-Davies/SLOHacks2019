@@ -64,7 +64,11 @@ API calls then retrieve this data and process as necessary when called on by the
 
 #### iOS Interface
 
-<>
+The iOS app consists of a 5 seperate views. "Events", "Leaderboard", "Profile", "EventsDescription", and "Prizes"
+<img src='' title='PhilanthroPoints Storyboard' width='' alt='PhilanthroPoints Storyboard in Xcode' />
+
+Events are loaded in from the server and shown in a Collection View. The Leaderboard and Prizes are both shown in Table Views.
+All of the views are embedded within a Navigation Controller to allow for smooth navigation and backtracking.
 
 ## Trying the project yourself
 
@@ -95,3 +99,7 @@ Apart from general user interface aspects that there was no time left for (such 
 It would also be beneficial to rewrite the server code in node.js or another more robust/ high performance server code framework, before deploying to the cloud and letting the application go live.
 
 #### iOS future work
+
+Most of our time during the hackathon was dedicated towards creating models, mapping out the flow of the app, learning about CollectionViews, and getting the API requests to work with the server. Since everything is, for the most part, already well built out behind the scenes, any future iOS work would focus on improving the UI and adding animations. 
+
+We would also like to add the ability to donate to charities directly through our app, however that was a little bit outside of the scope of this hackathon.
