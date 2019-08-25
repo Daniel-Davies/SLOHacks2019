@@ -1,7 +1,7 @@
 # PhilanthroPoints
 Incentivising members of the community to volunteer for local charities.
 
-## The Team
+## The Team 
 <html>
     <img src="https://raw.githubusercontent.com/Daniel-Davies/SLOHacks2019/master/photos/team_photo.jpg" alt="Team Photo" width="550">
 </html>  
